@@ -1,0 +1,15 @@
+<h2>Two-Way Binding with property and event</h2>
+<input
+  type="text"
+  value="{{ valueOne }}"
+  (input)="valueOne = $any($event.target).value"
+/>
+
+<p>{{ valueOne }}</p>
+
+<h2>Two-Way Binding with ngModel Directive</h2>
+<p>works importing FormsModule from @angular/forms</p>
+
+<input type="text" [(ngModel)]="valueTwo" />
+
+<p>{{ valueTwo }}</p>
