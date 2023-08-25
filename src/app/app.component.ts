@@ -18,8 +18,14 @@ export class AppComponent {
     "extra",
   ];
   selectedItem: number = 0;
+  currentStyleClass: string = "";
+  textColor: string = "blue";
 
   selectItem(item: number) {
     this.selectedItem = item;
+  }
+
+  changeTextColor() {
+    this.currentStyleClass = "pinkColor";
   }
 }

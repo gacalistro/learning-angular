@@ -4,13 +4,21 @@
 ></button-component>
 
 <!-- ngIf gets a boolean to show or not the element -->
-<input-component *ngIf="displayInput; else hiddenSection"></input-component>
+<input-component *ngIf="displayInput; else hiddenSection">
+  <p>
+    These are two ways of binding variables with input values and make it
+    reactive
+  </p>
+  <span>and this is text is a content from the parent to child class</span>
+</input-component>
 
 <!-- this element is not rendered by default; # is id; can use conditional to display -->
 <ng-template #hiddenSection>
   <h2>Not hidden anymore</h2>
 
-  <h3>Things to learn in angular</h3>
+  <button (click)="changeTextColor()">pink</button>
+
+  <h3 [ngStyle]="{ color: textColor }">Things to learn in angular</h3>
   <ul>
     <li *ngFor="let item of subjectList; let index = index">
       {{ index }} <button (click)="selectItem(index)">{{ item }}</button>
@@ -20,7 +28,7 @@
   <!-- switch case -->
   <div [ngSwitch]="selectedItem">
     <div *ngSwitchCase="0">
-      <h3>{{ subjectList[0] }}</h3>
+      <h3 [ngClass]="currentStyleClass">{{ subjectList[0] }}</h3>
       <p>
         Components are the main building blocks for Angular applications. Each
         component consists of: An HTML template that declares what renders on
@@ -30,7 +38,7 @@
     </div>
 
     <div *ngSwitchCase="1">
-      <h3>{{ subjectList[1] }}</h3>
+      <h3 [ngClass]="currentStyleClass">{{ subjectList[1] }}</h3>
       <p>
         In an Angular template, a binding creates a live connection between a
         part of the UI created from a template (a DOM element, directive, or
@@ -40,7 +48,7 @@
     </div>
 
     <div *ngSwitchCase="2">
-      <h3>{{ subjectList[2] }}</h3>
+      <h3 [ngClass]="currentStyleClass">{{ subjectList[2] }}</h3>
       <p>
         A component instance has a lifecycle that starts when Angular
         instantiates the component class and renders the component view along
@@ -49,7 +57,7 @@
     </div>
 
     <div *ngSwitchCase="3">
-      <h3>{{ subjectList[3] }}</h3>
+      <h3 [ngClass]="currentStyleClass">{{ subjectList[3] }}</h3>
       <p>
         Angular directives offer a great way to encapsulate reusable behaviors—
         directives can apply attributes, CSS classes, and event listeners to an
@@ -59,7 +67,7 @@
     </div>
 
     <div *ngSwitchDefault>
-      <h3>RODRIGO AKA GOES</h3>
+      <h3 [ngClass]="currentStyleClass">RODRIGO AKA GOES</h3>
       <p>Did you make love with juice? I don't know, you tell me!</p>
     </div>
   </div>
