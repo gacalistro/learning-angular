@@ -1,0 +1,9 @@
+<p>c-two works!</p>
+
+<div *ngIf="pokemonData">
+  <h2>{{ pokemonData.name }}</h2>
+  <img src="{{ pokemonData.sprite }}" alt="" />
+  <div style="display: flex; flex-direction: column">
+    <span *ngFor="let type of pokemonData.types">{{ type }}</span>
+  </div>
+</div>

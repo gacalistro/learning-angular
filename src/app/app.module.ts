@@ -1,15 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
-// import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ButtonComponent } from './components/button/button.component';
-import { InputComponent } from './components/input/input.component';
+import { AppComponent } from "./app.component";
+import { COneModule } from "./c-one/c-one.module";
+import { CTwoModule } from "./c-two/c-two.module";
 
 @NgModule({
-  declarations: [AppComponent, ButtonComponent, InputComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    COneModule,
+    CTwoModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
